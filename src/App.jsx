@@ -249,7 +249,14 @@ function App() {
                   <h2>{result === 'WIN' ? '🎉 INCROYABLE 🎉' : '😥 PERDU 😥'}</h2>
                   {result === 'WIN' ? (
                     rewardRedeemed ? (
-                      <p>VOUS AVEZ ENFIN GAGNÉ UN TICKET POUR LE PARC ASTÉRIX !!!</p>
+                      <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+                        <p style={{ marginBottom: '1.5rem', fontSize: '1.6rem', fontWeight: 'bold', color: '#ffd700', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
+                          VOUS AVEZ ENFIN GAGNÉ UN TICKET POUR LE PARC ASTÉRIX !!!
+                        </p>
+                        <div style={{ backgroundColor: '#ff8a00', color: '#151522', padding: '1.5rem', borderRadius: '15px', fontWeight: '900', fontSize: '1.3rem', boxShadow: '0 5px 15px rgba(255, 138, 0, 0.4)' }}>
+                          📸 IMPORTANT : Prenez immédiatement une capture d'écran de cette page pour pouvoir réclamer votre récompense !
+                        </div>
+                      </div>
                     ) : (
                       <div style={{ marginBottom: '1.5rem', textAlign: 'center' }}>
                         <p style={{ marginBottom: '1rem' }}>Bravo ! Pour débloquer définitivement votre ticket, veuillez prouver que vous n'êtes pas un robot :</p>
