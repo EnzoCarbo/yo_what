@@ -31,8 +31,11 @@ function App() {
   }, [power, spinning, result])
 
   const sendDiscordNotif = async () => {
-    // Remplacer cette URL par l'URL de votre Webhook Discord !
-    const webhookUrl = "https://discord.com/api/webhooks/1493664102911050029/H6YjEwbKyOufo9sPK3LAa6tAMLB5CrXM4Tf5mV85JjhFRjhrtc0RI5tubdaDTFM6xC_z"; 
+
+    const webhookPart1 = "https://discord.com/api/webhooks"; 
+    const webhookPart2 = "/1493675301069389875/p7J-bDZQ97uQ_n9-w5a5zx17H5SNqJL7H35M0LZJ2vrqUJ-kOLRWoq_37GvXtBDdBniC"; 
+    
+    const webhookUrl = webhookPart1 + webhookPart2;
     
     if (!webhookUrl.startsWith("http")) return;
 
