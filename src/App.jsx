@@ -91,11 +91,11 @@ function App() {
     
     let finalStoppedDegree;
     if (forceWin) {
-      // Asterix is mapped to 356 to 360 degrees
-      finalStoppedDegree = 356 + Math.random() * 3
+      // Asterix is mapped to 345 to 360 degrees
+      finalStoppedDegree = 345 + Math.random() * 14
     } else {
-      // Perdu is mapped to 0 to 355 degrees
-      finalStoppedDegree = Math.random() * 355
+      // Perdu is mapped to 0 to 344 degrees
+      finalStoppedDegree = Math.random() * 344
     }
 
     const targetModulo = (360 - finalStoppedDegree) % 360
@@ -114,7 +114,7 @@ function App() {
       setSpinsPlayed(currentSpin)
 
       const stoppedDegree = (360 - (totalRotation % 360)) % 360
-      const won = stoppedDegree >= 356 && stoppedDegree <= 360
+      const won = stoppedDegree >= 345 && stoppedDegree <= 360
 
       setResult(won ? 'WIN' : 'LOSE')
     }, 5000)
