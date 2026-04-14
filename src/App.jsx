@@ -44,7 +44,7 @@ function App() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          content: "🚨 INCROYABLE ! Quelqu'un vient de survivre à la roue, de spammer l'énergie et de résoudre l'équation complexe 5x5 ! Il a gagné un ticket pour Astérix ! 🎢"
+          content: "🚨 He being pas trop tôt ! Quelqu'un vient de survivre à la roue, de spammer l'énergie et de résoudre l'équation complexe 5x5 ! Il a gagné un ticket pour Astérix ! 🎢"
         })
       });
     } catch (e) {
@@ -246,20 +246,20 @@ function App() {
           <div className="result-modal-overlay">
             <div className={`result-modal ${result === 'WIN' ? 'win' : 'lose'}`}>
                 <>
-                  <h2>{result === 'WIN' ? '🎉 INCROYABLE 🎉' : '😥 PERDU 😥'}</h2>
+                  <h2>{result === 'WIN' ? '🎉 He being pas trop tôt ' : '😥 PERDU 😥'}</h2>
                   {result === 'WIN' ? (
                     rewardRedeemed ? (
                       <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
                         <p style={{ marginBottom: '1.5rem', fontSize: '1.6rem', fontWeight: 'bold', color: '#ffd700', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
-                          VOUS AVEZ ENFIN GAGNÉ UN TICKET POUR LE PARC ASTÉRIX !!!
+                          TU AS ENFIN GAGNÉ UN TICKET POUR LE PARC ASTÉRIX (naïve) !!!
                         </p>
                         <div style={{ backgroundColor: '#ff8a00', color: '#151522', padding: '1.5rem', borderRadius: '15px', fontWeight: '900', fontSize: '1.3rem', boxShadow: '0 5px 15px rgba(255, 138, 0, 0.4)' }}>
-                          📸 IMPORTANT : Prenez immédiatement une capture d'écran de cette page pour pouvoir réclamer votre récompense !
+                          📸 Prends immédiatement une capture d'écran de cette LILI pour pouvoir réclamer ta récompense !
                         </div>
                       </div>
                     ) : (
                       <div style={{ marginBottom: '1.5rem', textAlign: 'center' }}>
-                        <p style={{ marginBottom: '1rem' }}>Bravo ! Pour débloquer définitivement votre ticket, veuillez prouver que vous n'êtes pas un robot :</p>
+                        <p style={{ marginBottom: '1rem' }}>Essaies de résoudre ce calcul complexe (t'as le droit à chatGPT) :</p>
                         <div style={{ display: 'flex', gap: '15px', justifyContent: 'center', alignItems: 'center' }}>
                            <span style={{ fontSize: '1.8rem', fontWeight: 'bold' }}>5 × 5 =</span>
                            <input 
@@ -293,7 +293,7 @@ function App() {
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                       {spinsPlayed === 1 && (
                         <div style={{ marginBottom: '1rem' }}>
-                          <p>Ah... perdu ! Ne baissez pas les bras, il vous reste 2 essais !</p>
+                          <p>Fait un effort stp.... 2 Essais restant...</p>
                           <img 
                             src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDY4eThlMDdkbGdnanZ5NGxhYngzbHBpazQycm12azEzZ3hueGg5biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VzS83KZXazsy86sBCR/giphy.gif" 
                             alt="Cat troll 1" 
@@ -303,7 +303,7 @@ function App() {
                       )}
                       {spinsPlayed === 2 && (
                         <div style={{ marginBottom: '1rem' }}>
-                          <p>Encore raté... Vous n'avez vraiment pas de chance. Plus qu'un seul essai !!</p>
+                          <p>Baka girl... 1 Essai restant... (J'espère t'as mal à la main)</p>
                           <img 
                             src="https://media.giphy.com/media/hzzVv0SMDjyyVVtlnb/giphy.gif" 
                             alt="Cat troll 2" 
@@ -315,12 +315,6 @@ function App() {
                     </div>
                   )}
                 </>
-              
-              {(!result || result !== 'WIN' || rewardRedeemed) && (
-                <button className="close-btn" onClick={resetGame}>
-                  {spinsPlayed >= 3 ? "Recommencer du début" : "Lancer suivant"}
-                </button>
-              )}
             </div>
           </div>
         )}
