@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Confetti from 'react-confetti'
 import { useWindowSize } from 'react-use'
+import liliUrl from './assets/LILI.jpg'
 import './App.css'
 
 function App() {
@@ -113,7 +114,6 @@ function App() {
   })))
 
   // Lili images for victory background
-  const liliUrl = "/lili.png"; 
   const [lilis] = useState(() => Array.from({ length: 40 }).map((_, i) => ({
     id: i,
     left: `${Math.random() * 100}vw`,
