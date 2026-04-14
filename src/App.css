@@ -323,7 +323,7 @@
 
 .lili-floater {
   position: fixed;
-  z-index: 2;
+  z-index: 1000;
   pointer-events: none;
   animation: crazyDance 3s infinite alternate cubic-bezier(0.68, -0.55, 0.265, 1.55);
   border-radius: 50%;
