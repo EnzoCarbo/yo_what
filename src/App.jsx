@@ -131,13 +131,17 @@ function App() {
   })))
 
   // Lili images for victory background
-  const [lilis] = useState(() => Array.from({ length: 40 }).map((_, i) => ({
-    id: i,
-    left: `${Math.random() * 100}vw`,
-    top: `${Math.random() * 100}vh`,
-    animationDelay: `${Math.random() * 1.5}s`,
-    width: `${Math.random() * 100 + 40}px`
-  })))
+  const [lilis] = useState(() => {
+    const isMobile = window.innerWidth < 600;
+    const count = isMobile ? 12 : 40;
+    return Array.from({ length: count }).map((_, i) => ({
+      id: i,
+      left: `${Math.random() * 100}vw`,
+      top: `${Math.random() * 100}vh`,
+      animationDelay: `${Math.random() * 1.5}s`,
+      width: isMobile ? `${Math.random() * 40 + 30}px` : `${Math.random() * 100 + 40}px`
+    }))
+  })
 
   const resetGame = () => {
     setResult(null)
