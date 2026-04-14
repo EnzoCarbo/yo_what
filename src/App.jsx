@@ -184,7 +184,7 @@ function App() {
         ))}
 
         <div className="landing-container">
-          <h1 className="landing-title">Voulez-vous gagner un ticket pour Astérix ?</h1>
+          <h1 className="landing-title">Veux-tu gagner un ticket pour Astérix ?</h1>
           <div className="landing-buttons">
             <button className="btn-yes" onClick={() => setShowGame(true)}>OUI !</button>
             <button 
