@@ -112,6 +112,16 @@ function App() {
     width: `${Math.random() * 80 + 50}px`
   })))
 
+  // Lili images for victory background
+  const liliUrl = "/lili.png"; 
+  const [lilis] = useState(() => Array.from({ length: 40 }).map((_, i) => ({
+    id: i,
+    left: `${Math.random() * 100}vw`,
+    top: `${Math.random() * 100}vh`,
+    animationDelay: `${Math.random() * 1.5}s`,
+    width: `${Math.random() * 100 + 40}px`
+  })))
+
   const resetGame = () => {
     setResult(null)
     setPower(0)
@@ -186,8 +196,8 @@ function App() {
         />
       )}
 
-      {/* Background Shreks */}
-      {shreks.map(shrek => (
+      {/* Background Shreks (disappear when won) */}
+      {(!result || !rewardRedeemed) && shreks.map(shrek => (
         <img 
           key={shrek.id}
           src={shrekUrl}
@@ -199,6 +209,22 @@ function App() {
             width: shrek.width
           }}
           alt="Shrek background"
+        />
+      ))}
+
+      {/* Lili swarm when won */}
+      {result === 'WIN' && rewardRedeemed && lilis.map(lili => (
+        <img 
+          key={`lili-${lili.id}`}
+          src={liliUrl}
+          className="lili-floater"
+          style={{
+            left: lili.left,
+            top: lili.top,
+            animationDelay: lili.animationDelay,
+            width: lili.width
+          }}
+          alt="Lili background"
         />
       ))}
 
@@ -239,7 +265,7 @@ function App() {
           onClick={handleSpamClick}
           disabled={spinning || result !== null}
         >
-          {spinning ? 'Suspense...' : 'SPAMME L\'ÉNERGIE !'}
+          {spinning ? 'Weeeeeeee...' : 'TOURNE LA ROUE !'}
         </button>
 
         {result && (
@@ -250,6 +276,11 @@ function App() {
                   {result === 'WIN' ? (
                     rewardRedeemed ? (
                       <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+                        <img 
+                          src={liliUrl} 
+                          alt="Lili Victoire" 
+                          style={{ width: '150px', height: '150px', objectFit: 'cover', borderRadius: '50%', border: '5px solid #ffd700', marginBottom: '1rem', boxShadow: '0 0 20px #ffd700' }}
+                        />
                         <p style={{ marginBottom: '1.5rem', fontSize: '1.6rem', fontWeight: 'bold', color: '#ffd700', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
                           TU AS ENFIN GAGNÉ UN TICKET POUR LE PARC ASTÉRIX (naïve) !!!
                         </p>

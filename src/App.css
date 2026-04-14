@@ -321,6 +321,22 @@
   100% { transform: translateY(-30px) rotate(10deg) scale(1.1); }
 }
 
+.lili-floater {
+  position: fixed;
+  z-index: 2;
+  pointer-events: none;
+  animation: crazyDance 3s infinite alternate cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+  opacity: 0.9;
+}
+
+@keyframes crazyDance {
+  0% { transform: translateY(0px) rotate(0deg) scale(0.8); }
+  50% { transform: translateY(-70px) rotate(180deg) scale(1.3) skew(15deg); }
+  100% { transform: translateY(0px) rotate(360deg) scale(1.7); }
+}
+
 .app-container {
   z-index: 5;
 }
