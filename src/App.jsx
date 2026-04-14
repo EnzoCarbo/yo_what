@@ -32,24 +32,21 @@ function App() {
   }, [power, spinning, result])
 
   // Crazy Meow cascade when Lili swarm appears
-  useEffect(() => {
-    if (result === 'WIN' && rewardRedeemed) {
-      const audioUrl = "https://actions.google.com/sounds/v1/animals/cat_meow_short.ogg";
-      let count = 0;
-      const interval = setInterval(() => {
-        if (count >= 20) {
-          clearInterval(interval);
-          return;
-        }
-        const audio = new Audio(audioUrl);
-        audio.volume = Math.random() * 0.6 + 0.4;
-        audio.playbackRate = Math.random() * 0.8 + 0.6; // Des petits et gros miaulements
-        audio.play().catch(e => console.log('Audio autoplay prevented'));
-        count++;
-      }, 250);
-      return () => clearInterval(interval);
-    }
-  }, [result, rewardRedeemed]);
+  const playCrazyMeows = () => {
+    const audioUrl = "https://upload.wikimedia.org/wikipedia/commons/4/4b/Meow.ogg";
+    let count = 0;
+    const interval = setInterval(() => {
+      if (count >= 20) {
+        clearInterval(interval);
+        return;
+      }
+      const audio = new Audio(audioUrl);
+      audio.volume = Math.random() * 0.6 + 0.4;
+      audio.playbackRate = Math.random() * 0.8 + 0.8; // Des petits et gros miaulements
+      audio.play().catch(e => console.error('Audio empêché:', e));
+      count++;
+    }, 250);
+  }
 
   const sendDiscordNotif = async () => {
 
@@ -329,6 +326,7 @@ function App() {
                                if (mathAnswer.trim() === '25') {
                                  setRewardRedeemed(true)
                                  sendDiscordNotif()
+                                 playCrazyMeows()
                                } else {
                                  setMathError(true)
                                }
