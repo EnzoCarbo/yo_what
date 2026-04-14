@@ -259,7 +259,7 @@ function App() {
                       </div>
                     ) : (
                       <div style={{ marginBottom: '1.5rem', textAlign: 'center' }}>
-                        <p style={{ marginBottom: '1rem' }}>Essaies de résoudre ce calcul complexe (t'as le droit à chatGPT) :</p>
+                        <p style={{ marginBottom: '1rem' }}>Bravo ! Pour débloquer définitivement votre ticket, veuillez prouver que vous n'êtes pas un robot :</p>
                         <div style={{ display: 'flex', gap: '15px', justifyContent: 'center', alignItems: 'center' }}>
                            <span style={{ fontSize: '1.8rem', fontWeight: 'bold' }}>5 × 5 =</span>
                            <input 
@@ -315,6 +315,12 @@ function App() {
                     </div>
                   )}
                 </>
+              
+              {result !== 'WIN' && spinsPlayed < 3 && (
+                <button className="close-btn" onClick={resetGame}>
+                  Lancer suivant
+                </button>
+              )}
             </div>
           </div>
         )}
